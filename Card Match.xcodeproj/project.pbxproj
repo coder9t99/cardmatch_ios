@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A634D9ED8784E5B1FAE3862 /* NSMutableArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A634333E8165BC815A7FC1B /* NSMutableArray+Shuffle.m */; };
 		97A134B91CDB1FC5006DA7C4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A134B81CDB1FC5006DA7C4 /* main.m */; };
 		97A134BC1CDB1FC5006DA7C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A134BB1CDB1FC5006DA7C4 /* AppDelegate.m */; };
 		97A134BF1CDB1FC5006DA7C4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A134BE1CDB1FC5006DA7C4 /* ViewController.m */; };
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A634333E8165BC815A7FC1B /* NSMutableArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Shuffle.m"; sourceTree = "<group>"; };
+		1A634D461BED4170AEA3507D /* NSMutableArray+Shuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Shuffle.h"; sourceTree = "<group>"; };
 		97A134B41CDB1FC5006DA7C4 /* Card Match.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Card Match.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97A134B81CDB1FC5006DA7C4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		97A134BA1CDB1FC5006DA7C4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -101,6 +104,8 @@
 				97A134CB1CDB1FC5006DA7C4 /* Info.plist */,
 				97A134C31CDB1FC5006DA7C4 /* Card_Match.xcdatamodeld */,
 				97A134B71CDB1FC5006DA7C4 /* Supporting Files */,
+				1A634333E8165BC815A7FC1B /* NSMutableArray+Shuffle.m */,
+				1A634D461BED4170AEA3507D /* NSMutableArray+Shuffle.h */,
 			);
 			path = "Card Match";
 			sourceTree = "<group>";
@@ -228,6 +233,7 @@
 				97A134BC1CDB1FC5006DA7C4 /* AppDelegate.m in Sources */,
 				97A134B91CDB1FC5006DA7C4 /* main.m in Sources */,
 				97A134E51CDB67E6006DA7C4 /* CardViewCell.m in Sources */,
+				1A634D9ED8784E5B1FAE3862 /* NSMutableArray+Shuffle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,10 +17,11 @@ typedef NS_ENUM(NSUInteger, CardState) {
 @interface CardViewCell : UICollectionViewCell
 
 @property (readonly) CardState cardState;
-@property (nonatomic, assign) NSUInteger faceId;
+@property (nonatomic, strong) NSNumber *faceId;
 
 -(BOOL)flip;
 -(void)remove;
+-(void)reset;
 
 +(NSTimeInterval)animationDuration;
 

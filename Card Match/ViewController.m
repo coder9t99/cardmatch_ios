@@ -8,10 +8,11 @@
 
 #import "ViewController.h"
 #import "CardViewCell.h"
+#import "NSMutableArray+Shuffle.h"
 
 NSString * const kCardCellReuseId = @"CardCell";
 const NSUInteger kGridSize = 4;
-NSUInteger const cardData[kGridSize * kGridSize] =
+NSUInteger cardDataTemplate[kGridSize * kGridSize] =
     {
         1, 1,
         2, 2,
@@ -27,17 +28,38 @@ NSUInteger const cardData[kGridSize * kGridSize] =
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *selectedCardIndices;
+@property (nonatomic, strong) NSArray *cardData;
+@property (nonatomic, assign) NSUInteger pairsRemaining;
 
+- (void)startGame;
+- (void)restartGame;
 - (void)match;
 - (BOOL)flip:(NSIndexPath*)indexPath;
 - (void)remove:(NSIndexPath*)indexPath;
 
 - (void)deselectCards;
 - (void)removeSelectedCards;
+- (void)resetAll;
 
 @end
 
 @implementation ViewController
+
+- (void)startGame {
+    NSMutableArray *cardData = NSMutableArray.new;
+    for (NSUInteger i = 0; i < kGridSize * kGridSize; i++)
+    {
+        [cardData addObject:@(cardDataTemplate[i])];
+    }
+//    [cardData shuffle];
+    self.cardData = cardData;
+    self.pairsRemaining = (kGridSize * kGridSize) / 2;
+}
+
+- (void)restartGame {
+    [self startGame];
+    [self resetAll];
+}
 
 - (void)match {
     NSAssert(self.selectedCardIndices.count >= 2, @"Must select two cards in order to match cards");
@@ -45,8 +67,8 @@ NSUInteger const cardData[kGridSize * kGridSize] =
     NSNumber *selection1 = self.selectedCardIndices[0];
     NSNumber *selection2 = self.selectedCardIndices[1];
 
-    NSUInteger cardId1 = cardData[selection1.integerValue];
-    NSUInteger cardId2 = cardData[selection2.integerValue];
+    NSNumber *cardId1 = self.cardData[selection1.unsignedIntegerValue];
+    NSNumber *cardId2 = self.cardData[selection2.unsignedIntegerValue];
 
     // TODO: move logic away
     BOOL hasMatch = cardId1 == cardId2;
@@ -56,6 +78,14 @@ NSUInteger const cardData[kGridSize * kGridSize] =
                          :@selector(deselectCards)
                withObject:nil
                afterDelay:1.5];
+
+    if (hasMatch) {
+        self.pairsRemaining--;
+        if (self.pairsRemaining == 0)
+        {
+            [self performSelector:@selector(restartGame) withObject:nil afterDelay:2];
+        }
+    }
 }
 
 - (BOOL)flip:(NSIndexPath *)indexPath {
@@ -84,8 +114,21 @@ NSUInteger const cardData[kGridSize * kGridSize] =
     }
 }
 
+- (void)resetAll {
+    for (NSUInteger i = 0; i < kGridSize * kGridSize; i++) {
+        CardViewCell *cell =
+            (CardViewCell*)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+
+        [cell reset];
+    }
+    [self.collectionView reloadData];
+}
+
+
 #pragma mark - UIViewController
+
 - (void)viewDidLoad {
+    [self startGame];
     [super viewDidLoad];
     self.selectedCardIndices = NSMutableArray.new;
     [self.collectionView registerClass:CardViewCell.class forCellWithReuseIdentifier:kCardCellReuseId];
@@ -101,7 +144,6 @@ NSUInteger const cardData[kGridSize * kGridSize] =
         = margin // left
         + margin // right
         + (margin * (numberOfRows - 1.f)); // between columns
-
 
     CGSize  contentSize = self.collectionView.frame.size;
     CGFloat actualTopBottomMargin = contentSize.height * .1f;
@@ -130,7 +172,7 @@ NSUInteger const cardData[kGridSize * kGridSize] =
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CardViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCardCellReuseId forIndexPath:indexPath];
-    cell.faceId = cardData[indexPath.row];
+    cell.faceId = self.cardData[(NSUInteger) indexPath.row];
     return cell;
 }
 

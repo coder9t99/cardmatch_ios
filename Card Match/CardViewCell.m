@@ -61,14 +61,22 @@ NSString * const kCardFaceImagePrefix = @"colour";
     _cardState = CardRemoved;
 }
 
+- (void)reset
+{
+    _cardState = CardFaceDown;
+    self.faceImageView.hidden = YES;
+    self.backImageView.hidden = NO;
+}
+
+
 + (NSTimeInterval)animationDuration {
     return 0.5;
 }
 
 
-- (void)setFaceId:(NSUInteger)faceId {
+- (void)setFaceId:(NSNumber*)faceId {
     _faceId = faceId;
-    self.faceImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%lu", kCardFaceImagePrefix, (unsigned long) faceId]];
+    self.faceImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@%@", kCardFaceImagePrefix, faceId]];
 }
 
 @end
