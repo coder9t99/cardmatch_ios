@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A63492620DBBCAB3A30C8E7 /* RootViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6343A6AF75E064DEB16BA9 /* RootViewControllerFactory.m */; };
 		1A634D9ED8784E5B1FAE3862 /* NSMutableArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A634333E8165BC815A7FC1B /* NSMutableArray+Shuffle.m */; };
 		1A634F6BA99C22897FA96631 /* CardMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6346DE6E4E9B2F391C470B /* CardMatch.m */; };
 		97327BAD1CDC236300A8C3B7 /* HighScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97327BAB1CDC236300A8C3B7 /* HighScoreViewController.m */; };
@@ -37,7 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A6342800BEEC1F9E2D259A2 /* RootViewControllerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewControllerFactory.h; sourceTree = "<group>"; };
 		1A634333E8165BC815A7FC1B /* NSMutableArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Shuffle.m"; sourceTree = "<group>"; };
+		1A6343A6AF75E064DEB16BA9 /* RootViewControllerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewControllerFactory.m; sourceTree = "<group>"; };
 		1A6346DE6E4E9B2F391C470B /* CardMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardMatch.m; sourceTree = "<group>"; };
 		1A634D461BED4170AEA3507D /* NSMutableArray+Shuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Shuffle.h"; sourceTree = "<group>"; };
 		1A634F116D98971DBDCEEB7A /* CardMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardMatch.h; sourceTree = "<group>"; };
@@ -129,6 +132,8 @@
 				97327BAA1CDC236300A8C3B7 /* HighScoreViewController.h */,
 				97327BAB1CDC236300A8C3B7 /* HighScoreViewController.m */,
 				97327BAC1CDC236300A8C3B7 /* HighScoreViewController.xib */,
+				1A6343A6AF75E064DEB16BA9 /* RootViewControllerFactory.m */,
+				1A6342800BEEC1F9E2D259A2 /* RootViewControllerFactory.h */,
 			);
 			path = "Card Match";
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 				97A134E51CDB67E6006DA7C4 /* CardViewCell.m in Sources */,
 				1A634D9ED8784E5B1FAE3862 /* NSMutableArray+Shuffle.m in Sources */,
 				1A634F6BA99C22897FA96631 /* CardMatch.m in Sources */,
+				1A63492620DBBCAB3A30C8E7 /* RootViewControllerFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
