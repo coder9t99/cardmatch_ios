@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CardMatch.h"
 
-@interface ViewController : UIViewController<UICollectionViewDataSource, UIScrollViewDelegate, CardMatchDelegate>
+@interface ViewController : UIViewController
 
 @end
 

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/NSFetchedResultsController.h>
 
 @interface HighScoreViewController : UIViewController
 

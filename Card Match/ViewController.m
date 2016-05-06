@@ -7,13 +7,16 @@
 //
 
 #import "ViewController.h"
+
+#import "AppDelegate.h"
+#import "CardMatch.h"
 #import "CardViewCell.h"
 #import "IIViewDeckController.h"
 
 NSString * const kCardCellReuseId = @"CardCell";
 const NSUInteger kGridSize = 4;
 
-@interface ViewController ()
+@interface ViewController () <UICollectionViewDataSource, UIScrollViewDelegate, CardMatchDelegate>
 
 @property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *selectedCardIndices;
@@ -26,6 +29,7 @@ const NSUInteger kGridSize = 4;
 - (void)deselectCards;
 - (void)removeSelectedCards;
 - (void)resetAll;
+- (void)saveScore:(NSInteger)score withName:(NSString*)name;
 
 @end
 
@@ -89,6 +93,26 @@ const NSUInteger kGridSize = 4;
     self.navigationItem.title = [NSString stringWithFormat:@"%ld", (long)self.cardMatch.currentScore];
 }
 
+- (void)saveScore:(NSInteger)score withName:(NSString *)name {
+    AppDelegate *appDelegate = UIApplication.sharedApplication.delegate;
+
+    NSManagedObjectContext *context = appDelegate.managedObjectContext;
+    NSEntityDescription *entityDescription = [NSEntityDescription entityForName:@"Score" inManagedObjectContext:context];
+
+    NSManagedObject *scoreObject = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:context];
+    [scoreObject setValue:@(score) forKey:@"score"];
+    [scoreObject setValue:name forKey:@"name"];
+//    [scoreObject setValue:name forKey:@"timestamp"];
+
+    NSError *error;
+    [context save:&error]; // error is ignored for this excercise...
+
+    if (error) {
+        NSLog(@"Unable to save score %ld for %@.", score, name);
+    }
+}
+
+
 - (void)setupNavigationItems {
     // Logo
     UIImage *logoImage = [UIImage imageNamed:@"logo"];
@@ -97,7 +121,9 @@ const NSUInteger kGridSize = 4;
     CGFloat resizeRatio = (barHeight - 8.f) /logoImage.size.height;
     logoButton.frame = CGRectMake(0.f, 0.f, logoImage.size.width * resizeRatio, logoImage.size.height * resizeRatio);
     [logoButton setImage:logoImage forState:UIControlStateNormal];
-    [logoButton addTarget:self.viewDeckController action:@selector(toggleLeftView) forControlEvents:UIControlEventTouchUpInside];
+    [logoButton addTarget:self.viewDeckController
+                   action:@selector(toggleLeftView)
+         forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:logoButton];
 
     // Highscore button
@@ -148,7 +174,7 @@ const NSUInteger kGridSize = 4;
     collectionLayout.sectionInset = UIEdgeInsetsMake(margin, margin, margin, margin);
 
     self.collectionView.collectionViewLayout = collectionLayout;
-    self.collectionView.contentInset = UIEdgeInsetsMake(actualTopBottomMargin, 0.f, actualTopBottomMargin, 0.f);
+    self.collectionView.contentInset = UIEdgeInsetsMake(actualTopBottomMargin - margin, 0.f, actualTopBottomMargin - margin, 0.f);
 }
 
 #pragma mark - UICollectionView
@@ -157,8 +183,10 @@ const NSUInteger kGridSize = 4;
     return kGridSize * kGridSize;
 }
 
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CardViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCardCellReuseId forIndexPath:indexPath];
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    CardViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCardCellReuseId
+                                                                   forIndexPath:indexPath];
     cell.faceId = self.cardMatch.cardData[(NSUInteger)indexPath.row];
     return cell;
 }
@@ -182,6 +210,27 @@ const NSUInteger kGridSize = 4;
 #pragma mark - UIScrollViewDelegate
 
 -(void)gameOver:(NSInteger)score {
-    [self performSelector:@selector(restartGame) withObject:nil afterDelay:2];
+    UIAlertController *alertController =
+        [UIAlertController alertControllerWithTitle:@"You've Done It!"
+                                            message:@"Please enter your name"
+                                     preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Please enter your name";
+    }];
+
+    UIAlertAction *submitAction = [UIAlertAction actionWithTitle:@"Submit"
+                                                           style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction *action){
+                                                             UITextField *textField = alertController.textFields.firstObject;
+                                                             [self saveScore:score withName:textField.text];
+                                                             [self restartGame];
+                                                         }];
+    UIAlertAction *skipAction = [UIAlertAction actionWithTitle:@"Skip"
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:^(UIAlertAction *action){ [self restartGame]; }];
+    [alertController addAction:submitAction];
+    [alertController addAction:skipAction];
+
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 @end

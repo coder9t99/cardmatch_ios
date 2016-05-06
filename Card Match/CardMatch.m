@@ -87,11 +87,7 @@ NSUInteger cardDataTemplate[16] =
 }
 
 - (void)gameOver {
-    // TODO: persist highscore
-    // TODO: sync highscore with backend
-
-    if (self.delegate && [self.delegate respondsToSelector:@selector(gameOver:)])
-    {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(gameOver:)]) {
         [self.delegate gameOver:self.currentScore];
     }
 }
