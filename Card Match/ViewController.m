@@ -8,34 +8,20 @@
 
 #import "ViewController.h"
 #import "CardViewCell.h"
-#import "NSMutableArray+Shuffle.h"
+#import "IIViewDeckController.h"
 
 NSString * const kCardCellReuseId = @"CardCell";
 const NSUInteger kGridSize = 4;
-NSUInteger cardDataTemplate[kGridSize * kGridSize] =
-    {
-        1, 1,
-        2, 2,
-        3, 3,
-        4, 4,
-        5, 5,
-        6, 6,
-        7, 7,
-        8, 8,
-    };
 
 @interface ViewController ()
 
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, weak) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *selectedCardIndices;
-@property (nonatomic, strong) NSArray *cardData;
-@property (nonatomic, assign) NSUInteger pairsRemaining;
+@property (nonatomic, strong) CardMatch *cardMatch;
 
-- (void)startGame;
 - (void)restartGame;
 - (void)match;
 - (BOOL)flip:(NSIndexPath*)indexPath;
-- (void)remove:(NSIndexPath*)indexPath;
 
 - (void)deselectCards;
 - (void)removeSelectedCards;
@@ -45,19 +31,8 @@ NSUInteger cardDataTemplate[kGridSize * kGridSize] =
 
 @implementation ViewController
 
-- (void)startGame {
-    NSMutableArray *cardData = NSMutableArray.new;
-    for (NSUInteger i = 0; i < kGridSize * kGridSize; i++)
-    {
-        [cardData addObject:@(cardDataTemplate[i])];
-    }
-//    [cardData shuffle];
-    self.cardData = cardData;
-    self.pairsRemaining = (kGridSize * kGridSize) / 2;
-}
-
 - (void)restartGame {
-    [self startGame];
+    [self.cardMatch start];
     [self resetAll];
 }
 
@@ -67,11 +42,7 @@ NSUInteger cardDataTemplate[kGridSize * kGridSize] =
     NSNumber *selection1 = self.selectedCardIndices[0];
     NSNumber *selection2 = self.selectedCardIndices[1];
 
-    NSNumber *cardId1 = self.cardData[selection1.unsignedIntegerValue];
-    NSNumber *cardId2 = self.cardData[selection2.unsignedIntegerValue];
-
-    // TODO: move logic away
-    BOOL hasMatch = cardId1 == cardId2;
+    BOOL hasMatch = [self.cardMatch match:selection1.unsignedIntegerValue with:selection2.unsignedIntegerValue];
 
     [self performSelector:hasMatch
                          ?@selector(removeSelectedCards)
@@ -79,23 +50,12 @@ NSUInteger cardDataTemplate[kGridSize * kGridSize] =
                withObject:nil
                afterDelay:1.5];
 
-    if (hasMatch) {
-        self.pairsRemaining--;
-        if (self.pairsRemaining == 0)
-        {
-            [self performSelector:@selector(restartGame) withObject:nil afterDelay:2];
-        }
-    }
+    self.navigationItem.title = [NSString stringWithFormat:@"%ld", (long)self.cardMatch.currentScore];
 }
 
 - (BOOL)flip:(NSIndexPath *)indexPath {
     CardViewCell *cell = (CardViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
     return [cell flip];
-}
-
-- (void)remove:(NSIndexPath *)indexPath {
-    CardViewCell *cell = (CardViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
-    [cell remove];
 }
 
 - (void)deselectCards {
@@ -109,7 +69,10 @@ NSUInteger cardDataTemplate[kGridSize * kGridSize] =
 - (void)removeSelectedCards {
     while (self.selectedCardIndices.count) {
         NSNumber *selectedIndex = self.selectedCardIndices.lastObject;
-        [self remove:[NSIndexPath indexPathForRow:selectedIndex.unsignedIntegerValue inSection:0]];
+        CardViewCell *cell = (CardViewCell*)
+            [self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex.unsignedIntegerValue
+                                                                           inSection:0]];
+        [cell remove];
         [self.selectedCardIndices removeLastObject];
     }
 }
@@ -122,16 +85,39 @@ NSUInteger cardDataTemplate[kGridSize * kGridSize] =
         [cell reset];
     }
     [self.collectionView reloadData];
+
+    self.navigationItem.title = [NSString stringWithFormat:@"%ld", (long)self.cardMatch.currentScore];
 }
 
+- (void)setupNavigationItems {
+    // Logo
+    UIImage *logoImage = [UIImage imageNamed:@"logo"];
+    UIButton *logoButton = [[UIButton alloc] init];
+    CGFloat barHeight = self.navigationController.navigationBar.frame.size.height;
+    CGFloat resizeRatio = (barHeight - 8.f) /logoImage.size.height;
+    logoButton.frame = CGRectMake(0.f, 0.f, logoImage.size.width * resizeRatio, logoImage.size.height * resizeRatio);
+    [logoButton setImage:logoImage forState:UIControlStateNormal];
+    [logoButton addTarget:self.viewDeckController action:@selector(toggleLeftView) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:logoButton];
+
+    // Highscore button
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"High Score"
+                                                                              style:UIBarButtonItemStylePlain
+                                                                             target:self.viewDeckController
+                                                                             action:@selector(toggleRightView)];
+    // Current Score
+    self.navigationItem.title = @"0";
+}
 
 #pragma mark - UIViewController
 
 - (void)viewDidLoad {
-    [self startGame];
     [super viewDidLoad];
-    self.selectedCardIndices = NSMutableArray.new;
+    [self setupNavigationItems];
     [self.collectionView registerClass:CardViewCell.class forCellWithReuseIdentifier:kCardCellReuseId];
+    self.cardMatch = CardMatch.new;
+    self.cardMatch.delegate = self;
+    self.selectedCardIndices = NSMutableArray.new;
 }
 
 -(void)viewDidLayoutSubviews {
@@ -166,17 +152,19 @@ NSUInteger cardDataTemplate[kGridSize * kGridSize] =
 }
 
 #pragma mark - UICollectionView
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     return kGridSize * kGridSize;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     CardViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCardCellReuseId forIndexPath:indexPath];
-    cell.faceId = self.cardData[(NSUInteger) indexPath.row];
+    cell.faceId = self.cardMatch.cardData[(NSUInteger)indexPath.row];
     return cell;
 }
 
 #pragma mark - UIScrollViewDelegate
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (self.selectedCardIndices.count >= 2) {
         return;
@@ -191,4 +179,9 @@ NSUInteger cardDataTemplate[kGridSize * kGridSize] =
     }
 }
 
+#pragma mark - UIScrollViewDelegate
+
+-(void)gameOver:(NSInteger)score {
+    [self performSelector:@selector(restartGame) withObject:nil afterDelay:2];
+}
 @end

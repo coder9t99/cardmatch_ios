@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1A634D9ED8784E5B1FAE3862 /* NSMutableArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A634333E8165BC815A7FC1B /* NSMutableArray+Shuffle.m */; };
+		1A634F6BA99C22897FA96631 /* CardMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6346DE6E4E9B2F391C470B /* CardMatch.m */; };
+		97327BAD1CDC236300A8C3B7 /* HighScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97327BAB1CDC236300A8C3B7 /* HighScoreViewController.m */; };
+		97327BAE1CDC236300A8C3B7 /* HighScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97327BAC1CDC236300A8C3B7 /* HighScoreViewController.xib */; };
 		97A134B91CDB1FC5006DA7C4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A134B81CDB1FC5006DA7C4 /* main.m */; };
 		97A134BC1CDB1FC5006DA7C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A134BB1CDB1FC5006DA7C4 /* AppDelegate.m */; };
 		97A134BF1CDB1FC5006DA7C4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A134BE1CDB1FC5006DA7C4 /* ViewController.m */; };
@@ -18,6 +21,9 @@
 		97A134D51CDB1FC5006DA7C4 /* Card_MatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A134D41CDB1FC5006DA7C4 /* Card_MatchTests.m */; };
 		97A134E21CDB314B006DA7C4 /* CardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97A134E11CDB314B006DA7C4 /* CardViewCell.xib */; };
 		97A134E51CDB67E6006DA7C4 /* CardViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A134E41CDB67E6006DA7C4 /* CardViewCell.m */; };
+		97A134ED1CDBFA86006DA7C4 /* IISideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A134E81CDBFA86006DA7C4 /* IISideController.m */; };
+		97A134EE1CDBFA86006DA7C4 /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A134EA1CDBFA86006DA7C4 /* IIViewDeckController.m */; };
+		97A134EF1CDBFA86006DA7C4 /* IIWrapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A134EC1CDBFA86006DA7C4 /* IIWrapController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +38,12 @@
 
 /* Begin PBXFileReference section */
 		1A634333E8165BC815A7FC1B /* NSMutableArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Shuffle.m"; sourceTree = "<group>"; };
+		1A6346DE6E4E9B2F391C470B /* CardMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardMatch.m; sourceTree = "<group>"; };
 		1A634D461BED4170AEA3507D /* NSMutableArray+Shuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Shuffle.h"; sourceTree = "<group>"; };
+		1A634F116D98971DBDCEEB7A /* CardMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardMatch.h; sourceTree = "<group>"; };
+		97327BAA1CDC236300A8C3B7 /* HighScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreViewController.h; sourceTree = "<group>"; };
+		97327BAB1CDC236300A8C3B7 /* HighScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreViewController.m; sourceTree = "<group>"; };
+		97327BAC1CDC236300A8C3B7 /* HighScoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighScoreViewController.xib; sourceTree = "<group>"; };
 		97A134B41CDB1FC5006DA7C4 /* Card Match.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Card Match.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97A134B81CDB1FC5006DA7C4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		97A134BA1CDB1FC5006DA7C4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -50,6 +61,12 @@
 		97A134E11CDB314B006DA7C4 /* CardViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardViewCell.xib; sourceTree = "<group>"; };
 		97A134E31CDB67E6006DA7C4 /* CardViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardViewCell.h; sourceTree = "<group>"; };
 		97A134E41CDB67E6006DA7C4 /* CardViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardViewCell.m; sourceTree = "<group>"; };
+		97A134E71CDBFA86006DA7C4 /* IISideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IISideController.h; sourceTree = "<group>"; };
+		97A134E81CDBFA86006DA7C4 /* IISideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IISideController.m; sourceTree = "<group>"; };
+		97A134E91CDBFA86006DA7C4 /* IIViewDeckController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIViewDeckController.h; sourceTree = "<group>"; };
+		97A134EA1CDBFA86006DA7C4 /* IIViewDeckController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIViewDeckController.m; sourceTree = "<group>"; };
+		97A134EB1CDBFA86006DA7C4 /* IIWrapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIWrapController.h; sourceTree = "<group>"; };
+		97A134EC1CDBFA86006DA7C4 /* IIWrapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIWrapController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +108,7 @@
 		97A134B61CDB1FC5006DA7C4 /* Card Match */ = {
 			isa = PBXGroup;
 			children = (
+				97A134E61CDBFA6F006DA7C4 /* ViewDeck */,
 				97A134BA1CDB1FC5006DA7C4 /* AppDelegate.h */,
 				97A134BB1CDB1FC5006DA7C4 /* AppDelegate.m */,
 				97A134E31CDB67E6006DA7C4 /* CardViewCell.h */,
@@ -106,6 +124,11 @@
 				97A134B71CDB1FC5006DA7C4 /* Supporting Files */,
 				1A634333E8165BC815A7FC1B /* NSMutableArray+Shuffle.m */,
 				1A634D461BED4170AEA3507D /* NSMutableArray+Shuffle.h */,
+				1A6346DE6E4E9B2F391C470B /* CardMatch.m */,
+				1A634F116D98971DBDCEEB7A /* CardMatch.h */,
+				97327BAA1CDC236300A8C3B7 /* HighScoreViewController.h */,
+				97327BAB1CDC236300A8C3B7 /* HighScoreViewController.m */,
+				97327BAC1CDC236300A8C3B7 /* HighScoreViewController.xib */,
 			);
 			path = "Card Match";
 			sourceTree = "<group>";
@@ -125,6 +148,19 @@
 				97A134D61CDB1FC5006DA7C4 /* Info.plist */,
 			);
 			path = "Card MatchTests";
+			sourceTree = "<group>";
+		};
+		97A134E61CDBFA6F006DA7C4 /* ViewDeck */ = {
+			isa = PBXGroup;
+			children = (
+				97A134E71CDBFA86006DA7C4 /* IISideController.h */,
+				97A134E81CDBFA86006DA7C4 /* IISideController.m */,
+				97A134E91CDBFA86006DA7C4 /* IIViewDeckController.h */,
+				97A134EA1CDBFA86006DA7C4 /* IIViewDeckController.m */,
+				97A134EB1CDBFA86006DA7C4 /* IIWrapController.h */,
+				97A134EC1CDBFA86006DA7C4 /* IIWrapController.m */,
+			);
+			name = ViewDeck;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,6 +245,7 @@
 			files = (
 				97A134CA1CDB1FC5006DA7C4 /* LaunchScreen.storyboard in Resources */,
 				97A134C71CDB1FC5006DA7C4 /* Assets.xcassets in Resources */,
+				97327BAE1CDC236300A8C3B7 /* HighScoreViewController.xib in Resources */,
 				97A134E21CDB314B006DA7C4 /* CardViewCell.xib in Resources */,
 				97A134C21CDB1FC5006DA7C4 /* Main.storyboard in Resources */,
 			);
@@ -228,12 +265,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97A134ED1CDBFA86006DA7C4 /* IISideController.m in Sources */,
+				97A134EF1CDBFA86006DA7C4 /* IIWrapController.m in Sources */,
 				97A134BF1CDB1FC5006DA7C4 /* ViewController.m in Sources */,
 				97A134C51CDB1FC5006DA7C4 /* Card_Match.xcdatamodeld in Sources */,
 				97A134BC1CDB1FC5006DA7C4 /* AppDelegate.m in Sources */,
+				97327BAD1CDC236300A8C3B7 /* HighScoreViewController.m in Sources */,
 				97A134B91CDB1FC5006DA7C4 /* main.m in Sources */,
+				97A134EE1CDBFA86006DA7C4 /* IIViewDeckController.m in Sources */,
 				97A134E51CDB67E6006DA7C4 /* CardViewCell.m in Sources */,
 				1A634D9ED8784E5B1FAE3862 /* NSMutableArray+Shuffle.m in Sources */,
+				1A634F6BA99C22897FA96631 /* CardMatch.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +468,7 @@
 				97A134DB1CDB1FC5006DA7C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		97A134DC1CDB1FC5006DA7C4 /* Build configuration list for PBXNativeTarget "Card MatchTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +477,7 @@
 				97A134DE1CDB1FC5006DA7C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

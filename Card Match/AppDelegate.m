@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+#import "IIViewDeckController.h"
+#import "IISideController.h"
+#import "HighScoreViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +21,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+    UIViewController *centerController = [storyBoard instantiateViewControllerWithIdentifier:@"mainView"];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:centerController];
+
+    IISideController *highScoreSideViewController = [IISideController autoConstrainedSideControllerWithViewController:[[HighScoreViewController alloc] initWithNibName:@"HighScoreViewController" bundle:nil]];
+
+    IIViewDeckController* deckController =  [[IIViewDeckController alloc] initWithCenterViewController:navigationController
+                                                                                    leftViewController:nil
+                                                                                   rightViewController:highScoreSideViewController];
+    self.window.rootViewController = deckController;
+    [self.window makeKeyAndVisible];
+
+
     return YES;
 }
 
