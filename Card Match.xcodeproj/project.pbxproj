@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		1A634205FEB2E33B32F2C94C /* IISideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6341EA5A9D76AD96E99F41 /* IISideController.m */; };
 		1A6344497A9C55C125752EB6 /* IIWrapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A63478CF54EA11CB3735CA4 /* IIWrapController.m */; };
+		1A6347BEAE29FC79242FEAB9 /* HighScoreSynchroniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6346F870C9BB4E2CECE67E /* HighScoreSynchroniser.m */; };
 		1A63492620DBBCAB3A30C8E7 /* RootViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6343A6AF75E064DEB16BA9 /* RootViewControllerFactory.m */; };
+		1A634A2715309C8332A05ACE /* NSString+isEmptyOrWhiteSpace.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A634F9E8BBBDFF0EC483D18 /* NSString+isEmptyOrWhiteSpace.m */; };
 		1A634B939AE038AFA2B61AA5 /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A634BB0C99B81071F47F0A9 /* IIViewDeckController.m */; };
 		1A634D9ED8784E5B1FAE3862 /* NSMutableArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A634333E8165BC815A7FC1B /* NSMutableArray+Shuffle.m */; };
-		1A634EF7E8D7AF0034AE2C3C /* NSDate+EpochTime.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A634A5D4C928C49C272873A /* NSDate+EpochTime.m */; };
 		1A634F6BA99C22897FA96631 /* CardMatch.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A6346DE6E4E9B2F391C470B /* CardMatch.m */; };
 		97327BAD1CDC236300A8C3B7 /* HighScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97327BAB1CDC236300A8C3B7 /* HighScoreViewController.m */; };
 		97327BAE1CDC236300A8C3B7 /* HighScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97327BAC1CDC236300A8C3B7 /* HighScoreViewController.xib */; };
@@ -30,6 +31,10 @@
 		978318411CDDFD35008C20AA /* UNIHTTPRequestWithBody.m in Sources */ = {isa = PBXBuildFile; fileRef = 978318301CDDFD35008C20AA /* UNIHTTPRequestWithBody.m */; };
 		978318421CDDFD35008C20AA /* UNIRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 978318331CDDFD35008C20AA /* UNIRest.m */; };
 		978318431CDDFD35008C20AA /* UNIUrlConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 978318351CDDFD35008C20AA /* UNIUrlConnection.m */; };
+		978318471CDE2B39008C20AA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 978318461CDE2B39008C20AA /* Settings.bundle */; };
+		9783184C1CDE2EE0008C20AA /* SettingsWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 9783184B1CDE2EE0008C20AA /* SettingsWatcher.m */; };
+		978318581CDEE85F008C20AA /* HighScoreViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 978318561CDEE85F008C20AA /* HighScoreViewCell.m */; };
+		978318591CDEE85F008C20AA /* HighScoreViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 978318571CDEE85F008C20AA /* HighScoreViewCell.xib */; };
 		97A134B91CDB1FC5006DA7C4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A134B81CDB1FC5006DA7C4 /* main.m */; };
 		97A134BC1CDB1FC5006DA7C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A134BB1CDB1FC5006DA7C4 /* AppDelegate.m */; };
 		97A134BF1CDB1FC5006DA7C4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A134BE1CDB1FC5006DA7C4 /* ViewController.m */; };
@@ -53,7 +58,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1A63413D0DD5B61733CBE3A1 /* NSDate+EpochTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+EpochTime.h"; sourceTree = "<group>"; };
 		1A6341EA5A9D76AD96E99F41 /* IISideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IISideController.m; sourceTree = "<group>"; };
 		1A6342800BEEC1F9E2D259A2 /* RootViewControllerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewControllerFactory.h; sourceTree = "<group>"; };
 		1A634333E8165BC815A7FC1B /* NSMutableArray+Shuffle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Shuffle.m"; sourceTree = "<group>"; };
@@ -61,12 +65,15 @@
 		1A63452FD55D158E856076CD /* IIViewDeckController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIViewDeckController.h; sourceTree = "<group>"; };
 		1A63454051820341A9A3BF37 /* IIWrapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIWrapController.h; sourceTree = "<group>"; };
 		1A6346DE6E4E9B2F391C470B /* CardMatch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardMatch.m; sourceTree = "<group>"; };
+		1A6346F870C9BB4E2CECE67E /* HighScoreSynchroniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreSynchroniser.m; sourceTree = "<group>"; };
 		1A63478CF54EA11CB3735CA4 /* IIWrapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIWrapController.m; sourceTree = "<group>"; };
-		1A634A5D4C928C49C272873A /* NSDate+EpochTime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+EpochTime.m"; sourceTree = "<group>"; };
+		1A63499F5037220C073C7478 /* HighScoreSynchroniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreSynchroniser.h; sourceTree = "<group>"; };
 		1A634BB0C99B81071F47F0A9 /* IIViewDeckController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIViewDeckController.m; sourceTree = "<group>"; };
 		1A634CC9E0E7A2A6761AA881 /* IISideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IISideController.h; sourceTree = "<group>"; };
 		1A634D461BED4170AEA3507D /* NSMutableArray+Shuffle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Shuffle.h"; sourceTree = "<group>"; };
+		1A634DBDB10A757A1D9B8097 /* NSString+isEmptyOrWhiteSpace.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+isEmptyOrWhiteSpace.h"; sourceTree = "<group>"; };
 		1A634F116D98971DBDCEEB7A /* CardMatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardMatch.h; sourceTree = "<group>"; };
+		1A634F9E8BBBDFF0EC483D18 /* NSString+isEmptyOrWhiteSpace.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+isEmptyOrWhiteSpace.m"; sourceTree = "<group>"; };
 		97327BAA1CDC236300A8C3B7 /* HighScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreViewController.h; sourceTree = "<group>"; };
 		97327BAB1CDC236300A8C3B7 /* HighScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreViewController.m; sourceTree = "<group>"; };
 		97327BAC1CDC236300A8C3B7 /* HighScoreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighScoreViewController.xib; sourceTree = "<group>"; };
@@ -100,6 +107,12 @@
 		978318341CDDFD35008C20AA /* UNIUrlConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UNIUrlConnection.h; sourceTree = "<group>"; };
 		978318351CDDFD35008C20AA /* UNIUrlConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UNIUrlConnection.m; sourceTree = "<group>"; };
 		978318451CDDFDB2008C20AA /* CardMatchPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardMatchPrefixHeader.pch; sourceTree = "<group>"; };
+		978318461CDE2B39008C20AA /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		9783184A1CDE2EE0008C20AA /* SettingsWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsWatcher.h; sourceTree = "<group>"; };
+		9783184B1CDE2EE0008C20AA /* SettingsWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsWatcher.m; sourceTree = "<group>"; };
+		978318551CDEE85F008C20AA /* HighScoreViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreViewCell.h; sourceTree = "<group>"; };
+		978318561CDEE85F008C20AA /* HighScoreViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreViewCell.m; sourceTree = "<group>"; };
+		978318571CDEE85F008C20AA /* HighScoreViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighScoreViewCell.xib; sourceTree = "<group>"; };
 		97A134B41CDB1FC5006DA7C4 /* Card Match.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Card Match.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97A134B81CDB1FC5006DA7C4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		97A134BA1CDB1FC5006DA7C4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -211,6 +224,52 @@
 			name = thirdparty;
 			sourceTree = "<group>";
 		};
+		9783184D1CDE5706008C20AA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				97A134E31CDB67E6006DA7C4 /* CardViewCell.h */,
+				97A134E41CDB67E6006DA7C4 /* CardViewCell.m */,
+				97A134BD1CDB1FC5006DA7C4 /* ViewController.h */,
+				97A134BE1CDB1FC5006DA7C4 /* ViewController.m */,
+				97A134E11CDB314B006DA7C4 /* CardViewCell.xib */,
+				97A134C81CDB1FC5006DA7C4 /* LaunchScreen.storyboard */,
+				97A134C01CDB1FC5006DA7C4 /* Main.storyboard */,
+				978318551CDEE85F008C20AA /* HighScoreViewCell.h */,
+				978318561CDEE85F008C20AA /* HighScoreViewCell.m */,
+				978318571CDEE85F008C20AA /* HighScoreViewCell.xib */,
+				97327BAA1CDC236300A8C3B7 /* HighScoreViewController.h */,
+				97327BAB1CDC236300A8C3B7 /* HighScoreViewController.m */,
+				97327BAC1CDC236300A8C3B7 /* HighScoreViewController.xib */,
+				1A6343A6AF75E064DEB16BA9 /* RootViewControllerFactory.m */,
+				1A6342800BEEC1F9E2D259A2 /* RootViewControllerFactory.h */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		9783184E1CDE571C008C20AA /* Catgegory */ = {
+			isa = PBXGroup;
+			children = (
+				1A634333E8165BC815A7FC1B /* NSMutableArray+Shuffle.m */,
+				1A634D461BED4170AEA3507D /* NSMutableArray+Shuffle.h */,
+				1A634F9E8BBBDFF0EC483D18 /* NSString+isEmptyOrWhiteSpace.m */,
+				1A634DBDB10A757A1D9B8097 /* NSString+isEmptyOrWhiteSpace.h */,
+			);
+			name = Catgegory;
+			sourceTree = "<group>";
+		};
+		9783184F1CDE5734008C20AA /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				1A6346DE6E4E9B2F391C470B /* CardMatch.m */,
+				1A634F116D98971DBDCEEB7A /* CardMatch.h */,
+				1A6346F870C9BB4E2CECE67E /* HighScoreSynchroniser.m */,
+				1A63499F5037220C073C7478 /* HighScoreSynchroniser.h */,
+				9783184A1CDE2EE0008C20AA /* SettingsWatcher.h */,
+				9783184B1CDE2EE0008C20AA /* SettingsWatcher.m */,
+			);
+			name = Logic;
+			sourceTree = "<group>";
+		};
 		97A134AB1CDB1FC5006DA7C4 = {
 			isa = PBXGroup;
 			children = (
@@ -232,31 +291,14 @@
 		97A134B61CDB1FC5006DA7C4 /* Card Match */ = {
 			isa = PBXGroup;
 			children = (
-				978318441CDDFD44008C20AA /* thirdparty */,
 				97A134BA1CDB1FC5006DA7C4 /* AppDelegate.h */,
 				97A134BB1CDB1FC5006DA7C4 /* AppDelegate.m */,
-				97A134E31CDB67E6006DA7C4 /* CardViewCell.h */,
-				97A134E41CDB67E6006DA7C4 /* CardViewCell.m */,
-				97A134BD1CDB1FC5006DA7C4 /* ViewController.h */,
-				97A134BE1CDB1FC5006DA7C4 /* ViewController.m */,
-				97A134E11CDB314B006DA7C4 /* CardViewCell.xib */,
-				97A134C81CDB1FC5006DA7C4 /* LaunchScreen.storyboard */,
-				97A134C01CDB1FC5006DA7C4 /* Main.storyboard */,
 				97A134C61CDB1FC5006DA7C4 /* Assets.xcassets */,
-				97A134CB1CDB1FC5006DA7C4 /* Info.plist */,
-				97A134C31CDB1FC5006DA7C4 /* Card_Match.xcdatamodeld */,
+				9783184E1CDE571C008C20AA /* Catgegory */,
+				9783184F1CDE5734008C20AA /* Logic */,
 				97A134B71CDB1FC5006DA7C4 /* Supporting Files */,
-				1A634333E8165BC815A7FC1B /* NSMutableArray+Shuffle.m */,
-				1A634D461BED4170AEA3507D /* NSMutableArray+Shuffle.h */,
-				1A6346DE6E4E9B2F391C470B /* CardMatch.m */,
-				1A634F116D98971DBDCEEB7A /* CardMatch.h */,
-				97327BAA1CDC236300A8C3B7 /* HighScoreViewController.h */,
-				97327BAB1CDC236300A8C3B7 /* HighScoreViewController.m */,
-				97327BAC1CDC236300A8C3B7 /* HighScoreViewController.xib */,
-				1A6343A6AF75E064DEB16BA9 /* RootViewControllerFactory.m */,
-				1A6342800BEEC1F9E2D259A2 /* RootViewControllerFactory.h */,
-				1A634A5D4C928C49C272873A /* NSDate+EpochTime.m */,
-				1A63413D0DD5B61733CBE3A1 /* NSDate+EpochTime.h */,
+				978318441CDDFD44008C20AA /* thirdparty */,
+				9783184D1CDE5706008C20AA /* View */,
 			);
 			path = "Card Match";
 			sourceTree = "<group>";
@@ -264,8 +306,11 @@
 		97A134B71CDB1FC5006DA7C4 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				97A134C31CDB1FC5006DA7C4 /* Card_Match.xcdatamodeld */,
 				978318451CDDFDB2008C20AA /* CardMatchPrefixHeader.pch */,
+				97A134CB1CDB1FC5006DA7C4 /* Info.plist */,
 				97A134B81CDB1FC5006DA7C4 /* main.m */,
+				978318461CDE2B39008C20AA /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -363,6 +408,8 @@
 				97A134C71CDB1FC5006DA7C4 /* Assets.xcassets in Resources */,
 				97327BAE1CDC236300A8C3B7 /* HighScoreViewController.xib in Resources */,
 				97A134E21CDB314B006DA7C4 /* CardViewCell.xib in Resources */,
+				978318591CDEE85F008C20AA /* HighScoreViewCell.xib in Resources */,
+				978318471CDE2B39008C20AA /* Settings.bundle in Resources */,
 				97A134C21CDB1FC5006DA7C4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,17 +444,20 @@
 				9783183D1CDDFD35008C20AA /* UNIHTTPStringResponse.m in Sources */,
 				1A634D9ED8784E5B1FAE3862 /* NSMutableArray+Shuffle.m in Sources */,
 				1A634F6BA99C22897FA96631 /* CardMatch.m in Sources */,
+				978318581CDEE85F008C20AA /* HighScoreViewCell.m in Sources */,
 				978318431CDDFD35008C20AA /* UNIUrlConnection.m in Sources */,
 				978318391CDDFD35008C20AA /* UNISimpleRequest.m in Sources */,
 				1A63492620DBBCAB3A30C8E7 /* RootViewControllerFactory.m in Sources */,
 				9783183B1CDDFD35008C20AA /* UNIHTTPJsonResponse.m in Sources */,
-				1A634EF7E8D7AF0034AE2C3C /* NSDate+EpochTime.m in Sources */,
 				1A634205FEB2E33B32F2C94C /* IISideController.m in Sources */,
 				1A634B939AE038AFA2B61AA5 /* IIViewDeckController.m in Sources */,
 				978318411CDDFD35008C20AA /* UNIHTTPRequestWithBody.m in Sources */,
 				1A6344497A9C55C125752EB6 /* IIWrapController.m in Sources */,
 				978318381CDDFD35008C20AA /* UNIBodyRequest.m in Sources */,
+				9783184C1CDE2EE0008C20AA /* SettingsWatcher.m in Sources */,
 				978318371CDDFD35008C20AA /* UNIBaseRequest.m in Sources */,
+				1A6347BEAE29FC79242FEAB9 /* HighScoreSynchroniser.m in Sources */,
+				1A634A2715309C8332A05ACE /* NSString+isEmptyOrWhiteSpace.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,7 +522,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -486,7 +536,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -517,7 +567,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -525,7 +575,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

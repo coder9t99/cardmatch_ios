@@ -43,11 +43,10 @@ NSUInteger cardDataTemplate[16] =
 
 - (void)start {
     NSMutableArray *cardData = NSMutableArray.new;
-    for (NSUInteger i = 0; i < self.totalCardCount; i++)
-    {
+    for (NSUInteger i = 0; i < self.totalCardCount; i++) {
         [cardData addObject:@(cardDataTemplate[i])];
     }
-//    [cardData shuffle];
+    [cardData shuffle];
     _cardData = cardData;
     self.currentScore = 0;
     self.pairsRemaining = (self.totalCardCount) / 2;
@@ -99,6 +98,5 @@ NSUInteger cardDataTemplate[16] =
 - (void)matchNotFound {
     self.currentScore += penalty;
 }
-
 
 @end

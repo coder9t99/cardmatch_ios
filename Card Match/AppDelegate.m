@@ -8,17 +8,28 @@
 
 #import "AppDelegate.h"
 #import "RootViewControllerFactory.h"
+#import "SettingsWatcher.h"
+
+@interface AppDelegate ()
+@property (nonatomic, strong) SettingsWatcher *settingsWatcher;
+@end
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.settingsWatcher = SettingsWatcher.new;
     self.window.rootViewController = RootViewControllerFactory.new.create;
     [self.window makeKeyAndVisible];
+    if (self.synchroniser) { [self.synchroniser sync]; }
     return YES;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     [self saveContext];
+}
+
+-(HighScoreSynchroniser *)synchroniser {
+    return self.settingsWatcher.synchroniser;
 }
 
 #pragma mark - Core Data stack

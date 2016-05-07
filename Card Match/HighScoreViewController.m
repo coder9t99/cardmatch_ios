@@ -8,7 +8,11 @@
 
 #import "HighScoreViewController.h"
 #import "AppDelegate.h"
+#import "HighScoreSynchroniser.h"
+#import "HighScoreViewCell.h"
 #import <CoreData/NSEntityDescription.h>
+
+NSString * const kHighScoreCellId = @"HighScoreCellId";
 
 @interface HighScoreViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 
@@ -16,7 +20,8 @@
 @property (readonly) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (void)configureCell:(HighScoreViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
+- (void)reloadData:(id)reloadData;
 @end
 
 @implementation HighScoreViewController
@@ -25,7 +30,6 @@
 
 - (NSManagedObjectContext*)managedObjectContext {
     AppDelegate *appDelegate = UIApplication.sharedApplication.delegate;
-
     NSManagedObjectContext *context = appDelegate.managedObjectContext;
     return context;
 }
@@ -53,17 +57,29 @@
     return _fetchedResultsController;
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+- (void)configureCell:(HighScoreViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
     NSManagedObject *scoreObject = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
-    cell.textLabel.text = [scoreObject valueForKey:@"name"];
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@", [scoreObject valueForKey:@"score"]];
+    cell.rank = @(indexPath.row + 1);
+    cell.name = [scoreObject valueForKey:@"name"];
+    cell.score = [scoreObject valueForKey:@"score"];
 }
 
+- (void)reloadData:(id)reloadData {
+    [self.tableView reloadData];
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 #pragma mark - UIViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadData:)
+                                                 name:kDataSyncComplete
+                                               object:nil];
 
     NSError *error;
     if (![self.fetchedResultsController performFetch:&error]) {
@@ -72,8 +88,12 @@
         exit(-1);  // Fail
     }
 
+    UINib *cellNib = [UINib nibWithNibName:@"HighScoreViewCell" bundle:nil];
+    [self.tableView registerNib:cellNib forCellReuseIdentifier:kHighScoreCellId];
+
     self.title = @"Failed Banks";
 }
+
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -82,9 +102,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (!cell) cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:cellIdentifier];
+    HighScoreViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kHighScoreCellId forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }

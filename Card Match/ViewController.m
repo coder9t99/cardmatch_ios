@@ -12,6 +12,7 @@
 #import "CardMatch.h"
 #import "CardViewCell.h"
 #import "IIViewDeckController.h"
+#import "NSString+isEmptyOrWhiteSpace.h"
 
 NSString * const kCardCellReuseId = @"CardCell";
 const NSUInteger kGridSize = 4;
@@ -93,6 +94,7 @@ const NSUInteger kGridSize = 4;
     self.navigationItem.title = [NSString stringWithFormat:@"%ld", (long)self.cardMatch.currentScore];
 }
 
+
 - (void)saveScore:(NSInteger)score withName:(NSString *)name {
     AppDelegate *appDelegate = UIApplication.sharedApplication.delegate;
 
@@ -102,14 +104,17 @@ const NSUInteger kGridSize = 4;
     NSManagedObject *scoreObject = [[NSManagedObject alloc] initWithEntity:entityDescription insertIntoManagedObjectContext:context];
     [scoreObject setValue:@(score) forKey:@"score"];
     [scoreObject setValue:name forKey:@"name"];
-//    [scoreObject setValue:name forKey:@"timestamp"];
+    [scoreObject setValue:@(0) forKey:@"batch_tag"];
 
     NSError *error;
     [context save:&error]; // error is ignored for this excercise...
 
     if (error) {
-        NSLog(@"Unable to save score %ld for %@.", score, name);
+        NSLog(@"Unable to save score %ld for %@.", (long)score, name);
     }
+
+    // sync
+    [appDelegate.synchroniser sync];
 }
 
 
@@ -198,8 +203,14 @@ const NSUInteger kGridSize = 4;
         return;
     }
 
-    if ([self flip:indexPath]) {
-        [self.selectedCardIndices addObject:@(indexPath.row)];
+    NSNumber *rowNumber = @(indexPath.row);
+    if ([self.selectedCardIndices containsObject:rowNumber]) {
+        // NOTE: card already selected. do nothing.
+        // NOTE: should flip back be allowed, this is probably ideal place to modify
+        //[self.selectedCardIndices removeObject:rowNumber];
+    } else {
+        [self flip:indexPath];
+        [self.selectedCardIndices addObject:rowNumber];
     }
 
     if (self.selectedCardIndices.count >= 2) {
@@ -228,8 +239,20 @@ const NSUInteger kGridSize = 4;
     UIAlertAction *skipAction = [UIAlertAction actionWithTitle:@"Skip"
                                                            style:UIAlertActionStyleCancel
                                                          handler:^(UIAlertAction *action){ [self restartGame]; }];
+
+    submitAction.enabled = false;
     [alertController addAction:submitAction];
     [alertController addAction:skipAction];
+
+    // Notifications for textFieldName changes
+    [NSNotificationCenter.defaultCenter addObserverForName:UITextFieldTextDidChangeNotification
+                                                    object:alertController.textFields[0]
+                                                     queue:NSOperationQueue.mainQueue
+                                                usingBlock:^(NSNotification *note) {
+                                                    UITextField *textField = alertController.textFields.firstObject;
+                                                    submitAction.enabled = !textField.text.isEmptyOrWhiteSpace;
+                                                }];
+
 
     [self presentViewController:alertController animated:YES completion:nil];
 }
