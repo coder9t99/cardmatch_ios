@@ -1,0 +1,17 @@
+//
+//  CardMatchPrefixHeader.pch
+//  Card Match
+//
+//  Created by Quentin Lin on 7/05/2016.
+//  Copyright © 2016 Accedo. All rights reserved.
+//
+
+#ifndef CardMatchPrefixHeader_pch
+#define CardMatchPrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <UIKit/UIKit.h>
+
+
+#endif /* CardMatchPrefixHeader_pch */
