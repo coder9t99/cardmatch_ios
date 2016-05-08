@@ -236,13 +236,15 @@ const NSUInteger kGridSize = 4;
                                                              [self saveScore:score withName:textField.text];
                                                              [self restartGame];
                                                          }];
-    UIAlertAction *skipAction = [UIAlertAction actionWithTitle:@"Skip"
-                                                           style:UIAlertActionStyleCancel
-                                                         handler:^(UIAlertAction *action){ [self restartGame]; }];
 
     submitAction.enabled = false;
     [alertController addAction:submitAction];
-    [alertController addAction:skipAction];
+
+// SKIP button is disabled
+//    UIAlertAction *skipAction = [UIAlertAction actionWithTitle:@"Skip"
+//                                                           style:UIAlertActionStyleCancel
+//                                                         handler:^(UIAlertAction *action){ [self restartGame]; }];
+//    [alertController addAction:skipAction];
 
     // Notifications for textFieldName changes
     [NSNotificationCenter.defaultCenter addObserverForName:UITextFieldTextDidChangeNotification
