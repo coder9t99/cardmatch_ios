@@ -1,15 +1,15 @@
 //
-//  Card_MatchTests.m
-//  Card MatchTests
+//  ColourMemoryTests.m
+//  ColourMemoryTests
 //
-//  Created by Quentin Lin on 5/05/2016.
+//  Created by Quentin Lin on 8/05/2016.
 //  Copyright © 2016 coder9t99. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 #import "CardMatch.h"
 
-@interface Card_MatchTests : XCTestCase
+@interface ColourMemoryTests : XCTestCase
 @property (nonatomic, strong) CardMatch *cardMatch;
 @end
 
@@ -18,9 +18,8 @@
 @property BOOL triggered;
 @end
 
-
 #pragma mark - test body
-@implementation Card_MatchTests
+@implementation ColourMemoryTests
 
 - (void)setUp {
     [super setUp];

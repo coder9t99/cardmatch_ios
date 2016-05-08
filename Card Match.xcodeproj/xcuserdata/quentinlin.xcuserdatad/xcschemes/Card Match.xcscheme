@@ -38,6 +38,16 @@
                ReferencedContainer = "container:Card Match.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9783185D1CDF6AE3008C20AA"
+               BuildableName = "ColourMemoryTests.xctest"
+               BlueprintName = "ColourMemoryTests"
+               ReferencedContainer = "container:Card Match.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

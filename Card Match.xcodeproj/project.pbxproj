@@ -35,6 +35,7 @@
 		9783184C1CDE2EE0008C20AA /* SettingsWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 9783184B1CDE2EE0008C20AA /* SettingsWatcher.m */; };
 		978318581CDEE85F008C20AA /* HighScoreViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 978318561CDEE85F008C20AA /* HighScoreViewCell.m */; };
 		978318591CDEE85F008C20AA /* HighScoreViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 978318571CDEE85F008C20AA /* HighScoreViewCell.xib */; };
+		978318611CDF6AE3008C20AA /* ColourMemoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 978318601CDF6AE3008C20AA /* ColourMemoryTests.m */; };
 		97A134B91CDB1FC5006DA7C4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A134B81CDB1FC5006DA7C4 /* main.m */; };
 		97A134BC1CDB1FC5006DA7C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A134BB1CDB1FC5006DA7C4 /* AppDelegate.m */; };
 		97A134BF1CDB1FC5006DA7C4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A134BE1CDB1FC5006DA7C4 /* ViewController.m */; };
@@ -42,18 +43,17 @@
 		97A134C51CDB1FC5006DA7C4 /* Card_Match.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 97A134C31CDB1FC5006DA7C4 /* Card_Match.xcdatamodeld */; };
 		97A134C71CDB1FC5006DA7C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97A134C61CDB1FC5006DA7C4 /* Assets.xcassets */; };
 		97A134CA1CDB1FC5006DA7C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97A134C81CDB1FC5006DA7C4 /* LaunchScreen.storyboard */; };
-		97A134D51CDB1FC5006DA7C4 /* CardMatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A134D41CDB1FC5006DA7C4 /* CardMatchTests.m */; };
 		97A134E21CDB314B006DA7C4 /* CardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97A134E11CDB314B006DA7C4 /* CardViewCell.xib */; };
 		97A134E51CDB67E6006DA7C4 /* CardViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 97A134E41CDB67E6006DA7C4 /* CardViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		97A134D11CDB1FC5006DA7C4 /* PBXContainerItemProxy */ = {
+		978318631CDF6AE3008C20AA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 97A134AC1CDB1FC5006DA7C4 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 97A134B31CDB1FC5006DA7C4;
-			remoteInfo = "Card Match";
+			remoteInfo = "Colour Memory";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -113,6 +113,9 @@
 		978318551CDEE85F008C20AA /* HighScoreViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HighScoreViewCell.h; sourceTree = "<group>"; };
 		978318561CDEE85F008C20AA /* HighScoreViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HighScoreViewCell.m; sourceTree = "<group>"; };
 		978318571CDEE85F008C20AA /* HighScoreViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HighScoreViewCell.xib; sourceTree = "<group>"; };
+		9783185E1CDF6AE3008C20AA /* ColourMemoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColourMemoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		978318601CDF6AE3008C20AA /* ColourMemoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColourMemoryTests.m; sourceTree = "<group>"; };
+		978318621CDF6AE3008C20AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97A134B41CDB1FC5006DA7C4 /* Colour Memory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Colour Memory.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		97A134B81CDB1FC5006DA7C4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		97A134BA1CDB1FC5006DA7C4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -124,23 +127,20 @@
 		97A134C61CDB1FC5006DA7C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97A134C91CDB1FC5006DA7C4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97A134CB1CDB1FC5006DA7C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		97A134D01CDB1FC5006DA7C4 /* CardMatchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CardMatchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		97A134D41CDB1FC5006DA7C4 /* CardMatchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardMatchTests.m; sourceTree = "<group>"; };
-		97A134D61CDB1FC5006DA7C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		97A134E11CDB314B006DA7C4 /* CardViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardViewCell.xib; sourceTree = "<group>"; };
 		97A134E31CDB67E6006DA7C4 /* CardViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardViewCell.h; sourceTree = "<group>"; };
 		97A134E41CDB67E6006DA7C4 /* CardViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		97A134B11CDB1FC5006DA7C4 /* Frameworks */ = {
+		9783185B1CDF6AE3008C20AA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		97A134CD1CDB1FC5006DA7C4 /* Frameworks */ = {
+		97A134B11CDB1FC5006DA7C4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -270,11 +270,20 @@
 			name = Logic;
 			sourceTree = "<group>";
 		};
+		9783185F1CDF6AE3008C20AA /* ColourMemoryTests */ = {
+			isa = PBXGroup;
+			children = (
+				978318601CDF6AE3008C20AA /* ColourMemoryTests.m */,
+				978318621CDF6AE3008C20AA /* Info.plist */,
+			);
+			path = ColourMemoryTests;
+			sourceTree = "<group>";
+		};
 		97A134AB1CDB1FC5006DA7C4 = {
 			isa = PBXGroup;
 			children = (
-				97A134B61CDB1FC5006DA7C4 /* Card Match */,
-				97A134D31CDB1FC5006DA7C4 /* CardMatchTests */,
+				97A134B61CDB1FC5006DA7C4 /* ColourMemory */,
+				9783185F1CDF6AE3008C20AA /* ColourMemoryTests */,
 				97A134B51CDB1FC5006DA7C4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -283,12 +292,12 @@
 			isa = PBXGroup;
 			children = (
 				97A134B41CDB1FC5006DA7C4 /* Colour Memory.app */,
-				97A134D01CDB1FC5006DA7C4 /* CardMatchTests.xctest */,
+				9783185E1CDF6AE3008C20AA /* ColourMemoryTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		97A134B61CDB1FC5006DA7C4 /* Card Match */ = {
+		97A134B61CDB1FC5006DA7C4 /* ColourMemory */ = {
 			isa = PBXGroup;
 			children = (
 				97A134BA1CDB1FC5006DA7C4 /* AppDelegate.h */,
@@ -300,6 +309,7 @@
 				978318441CDDFD44008C20AA /* thirdparty */,
 				9783184D1CDE5706008C20AA /* View */,
 			);
+			name = ColourMemory;
 			path = "Card Match";
 			sourceTree = "<group>";
 		};
@@ -315,19 +325,27 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		97A134D31CDB1FC5006DA7C4 /* CardMatchTests */ = {
-			isa = PBXGroup;
-			children = (
-				97A134D41CDB1FC5006DA7C4 /* CardMatchTests.m */,
-				97A134D61CDB1FC5006DA7C4 /* Info.plist */,
-			);
-			name = CardMatchTests;
-			path = "Card MatchTests";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		9783185D1CDF6AE3008C20AA /* ColourMemoryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 978318671CDF6AE3008C20AA /* Build configuration list for PBXNativeTarget "ColourMemoryTests" */;
+			buildPhases = (
+				9783185A1CDF6AE3008C20AA /* Sources */,
+				9783185B1CDF6AE3008C20AA /* Frameworks */,
+				9783185C1CDF6AE3008C20AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				978318641CDF6AE3008C20AA /* PBXTargetDependency */,
+			);
+			name = ColourMemoryTests;
+			productName = ColourMemoryTests;
+			productReference = 9783185E1CDF6AE3008C20AA /* ColourMemoryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		97A134B31CDB1FC5006DA7C4 /* Colour Memory */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 97A134D91CDB1FC5006DA7C4 /* Build configuration list for PBXNativeTarget "Colour Memory" */;
@@ -345,24 +363,6 @@
 			productReference = 97A134B41CDB1FC5006DA7C4 /* Colour Memory.app */;
 			productType = "com.apple.product-type.application";
 		};
-		97A134CF1CDB1FC5006DA7C4 /* CardMatchTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 97A134DC1CDB1FC5006DA7C4 /* Build configuration list for PBXNativeTarget "CardMatchTests" */;
-			buildPhases = (
-				97A134CC1CDB1FC5006DA7C4 /* Sources */,
-				97A134CD1CDB1FC5006DA7C4 /* Frameworks */,
-				97A134CE1CDB1FC5006DA7C4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				97A134D21CDB1FC5006DA7C4 /* PBXTargetDependency */,
-			);
-			name = CardMatchTests;
-			productName = "Card MatchTests";
-			productReference = 97A134D01CDB1FC5006DA7C4 /* CardMatchTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -372,12 +372,12 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = coder9t99;
 				TargetAttributes = {
-					97A134B31CDB1FC5006DA7C4 = {
-						CreatedOnToolsVersion = 7.3;
-					};
-					97A134CF1CDB1FC5006DA7C4 = {
+					9783185D1CDF6AE3008C20AA = {
 						CreatedOnToolsVersion = 7.3;
 						TestTargetID = 97A134B31CDB1FC5006DA7C4;
+					};
+					97A134B31CDB1FC5006DA7C4 = {
+						CreatedOnToolsVersion = 7.3;
 					};
 				};
 			};
@@ -395,12 +395,19 @@
 			projectRoot = "";
 			targets = (
 				97A134B31CDB1FC5006DA7C4 /* Colour Memory */,
-				97A134CF1CDB1FC5006DA7C4 /* CardMatchTests */,
+				9783185D1CDF6AE3008C20AA /* ColourMemoryTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9783185C1CDF6AE3008C20AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97A134B21CDB1FC5006DA7C4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -415,16 +422,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		97A134CE1CDB1FC5006DA7C4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9783185A1CDF6AE3008C20AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				978318611CDF6AE3008C20AA /* ColourMemoryTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		97A134B01CDB1FC5006DA7C4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -462,21 +470,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		97A134CC1CDB1FC5006DA7C4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				97A134D51CDB1FC5006DA7C4 /* CardMatchTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		97A134D21CDB1FC5006DA7C4 /* PBXTargetDependency */ = {
+		978318641CDF6AE3008C20AA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 97A134B31CDB1FC5006DA7C4 /* Colour Memory */;
-			targetProxy = 97A134D11CDB1FC5006DA7C4 /* PBXContainerItemProxy */;
+			targetProxy = 978318631CDF6AE3008C20AA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -500,6 +500,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		978318651CDF6AE3008C20AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				INFOPLIST_FILE = ColourMemoryTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coder9t99.cardmatch.ColourMemoryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Colour Memory.app/Colour Memory";
+			};
+			name = Debug;
+		};
+		978318661CDF6AE3008C20AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				INFOPLIST_FILE = ColourMemoryTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coder9t99.cardmatch.ColourMemoryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Colour Memory.app/Colour Memory";
+			};
+			name = Release;
+		};
 		97A134D71CDB1FC5006DA7C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -616,33 +644,17 @@
 			};
 			name = Release;
 		};
-		97A134DD1CDB1FC5006DA7C4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Card MatchTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.coder9t99.cardmatch.Card-MatchTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Card Match.app/Card Match";
-			};
-			name = Debug;
-		};
-		97A134DE1CDB1FC5006DA7C4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Card MatchTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.coder9t99.cardmatch.Card-MatchTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Card Match.app/Card Match";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		978318671CDF6AE3008C20AA /* Build configuration list for PBXNativeTarget "ColourMemoryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				978318651CDF6AE3008C20AA /* Debug */,
+				978318661CDF6AE3008C20AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		97A134AF1CDB1FC5006DA7C4 /* Build configuration list for PBXProject "Card Match" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -657,15 +669,6 @@
 			buildConfigurations = (
 				97A134DA1CDB1FC5006DA7C4 /* Debug */,
 				97A134DB1CDB1FC5006DA7C4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		97A134DC1CDB1FC5006DA7C4 /* Build configuration list for PBXNativeTarget "CardMatchTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				97A134DD1CDB1FC5006DA7C4 /* Debug */,
-				97A134DE1CDB1FC5006DA7C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
