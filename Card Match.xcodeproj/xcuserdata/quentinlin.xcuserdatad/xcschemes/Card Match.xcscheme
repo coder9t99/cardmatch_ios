@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "97A134B31CDB1FC5006DA7C4"
-               BuildableName = "Card Match.app"
-               BlueprintName = "Card Match"
+               BuildableName = "Colour Memory.app"
+               BlueprintName = "Colour Memory"
                ReferencedContainer = "container:Card Match.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "97A134CF1CDB1FC5006DA7C4"
-               BuildableName = "Card MatchTests.xctest"
-               BlueprintName = "Card MatchTests"
+               BuildableName = "CardMatchTests.xctest"
+               BlueprintName = "CardMatchTests"
                ReferencedContainer = "container:Card Match.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "97A134B31CDB1FC5006DA7C4"
-            BuildableName = "Card Match.app"
-            BlueprintName = "Card Match"
+            BuildableName = "Colour Memory.app"
+            BlueprintName = "Colour Memory"
             ReferencedContainer = "container:Card Match.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -66,8 +66,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "97A134B31CDB1FC5006DA7C4"
-            BuildableName = "Card Match.app"
-            BlueprintName = "Card Match"
+            BuildableName = "Colour Memory.app"
+            BlueprintName = "Colour Memory"
             ReferencedContainer = "container:Card Match.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -85,8 +85,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "97A134B31CDB1FC5006DA7C4"
-            BuildableName = "Card Match.app"
-            BlueprintName = "Card Match"
+            BuildableName = "Colour Memory.app"
+            BlueprintName = "Colour Memory"
             ReferencedContainer = "container:Card Match.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
