@@ -3,7 +3,7 @@
 //  Card Match
 //
 //  Created by Quentin Lin on 5/05/2016.
-//  Copyright © 2016 Accedo. All rights reserved.
+//  Copyright © 2016 coder9t99. All rights reserved.
 //
 
 #import "AppDelegate.h"
@@ -39,7 +39,7 @@
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
 - (NSURL *)applicationDocumentsDirectory {
-    // The directory the application uses to store the Core Data store file. This code uses a directory named "com.accedo.cardmatch.Card_Match" in the application's documents directory.
+    // The directory the application uses to store the Core Data store file. This code uses a directory named "com.coder9t99.cardmatch.Card_Match" in the application's documents directory.
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
 

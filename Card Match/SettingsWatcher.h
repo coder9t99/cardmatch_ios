@@ -3,7 +3,7 @@
 //  Card Match
 //
 //  Created by Quentin Lin on 8/05/2016.
-//  Copyright © 2016 Accedo. All rights reserved.
+//  Copyright © 2016 coder9t99. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

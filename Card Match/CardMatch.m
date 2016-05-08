@@ -1,6 +1,6 @@
 //
 // Created by Quentin Lin on 6/05/2016.
-// Copyright (c) 2016 Accedo. All rights reserved.
+// Copyright (c) 2016 coder9t99. All rights reserved.
 //
 
 #import "CardMatch.h"
